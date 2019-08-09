@@ -1,11 +1,13 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
+#include "ui_mainwindow.h"  
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+MainWindow::MainWindow(AddressBookController *controller, QWidget *parent):
+  QMainWindow(parent),
+  ui(new Ui::MainWindow),
+  m_controller(controller)
 {
-    ui->setupUi(this);
+    Q_ASSERT(controller!=nullptr);
+  ui->setupUi(this);
 }
 
 MainWindow::~MainWindow()
